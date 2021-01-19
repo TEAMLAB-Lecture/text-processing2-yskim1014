@@ -32,8 +32,8 @@ def digits_to_words(input_string):
     digit_string = ''
     for i in input_string:
         if i.isdecimal():
-            digit_string += swap_dict[i]+ " "
-    return digit_string
+            digit_string += swap_dict[i]+ ' '
+    return digit_string[:-1] if digit_string else ''
 
 
 """
@@ -68,6 +68,8 @@ def to_camel_case(underscore_str):
             >>> tp2.to_camel_case(underscore_str3)
             "alreadyCamel"
     """
+    if underscore_str not in '_':
+        return underscore_str
     temp_str = underscore_str[:]
     while temp_str.startswith('_'):
         temp_str=temp_str[1:]
